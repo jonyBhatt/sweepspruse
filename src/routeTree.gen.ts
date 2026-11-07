@@ -9,54 +9,127 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as mainRouteRouteImport } from './routes/(main)/route'
+import { Route as mainlandingIndexRouteImport } from './routes/(main)/(landing)/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as mainlandingServicesGrassCleaningRouteImport } from './routes/(main)/(landing)/services/grass-cleaning'
+import { Route as mainlandingServicesHomeCleaningRouteImport } from './routes/(main)/(landing)/services/home-cleaning'
+import { Route as mainlandingServicesJunkCleaningRouteImport } from './routes/(main)/(landing)/services/junk-cleaning'
+import { Route as mainlandingServicesSnowCleaningRouteImport } from './routes/(main)/(landing)/services/snow-cleaning'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const mainRouteRoute = mainRouteRouteImport.update({
+  id: '/(main)',
   getParentRoute: () => rootRouteImport,
+} as any)
+const mainlandingIndexRoute = mainlandingIndexRouteImport.update({
+  id: '/(landing)/',
+  path: '/',
+  getParentRoute: () => mainRouteRoute,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const mainlandingServicesGrassCleaningRoute =
+  mainlandingServicesGrassCleaningRouteImport.update({
+    id: '/(landing)/services/grass-cleaning',
+    path: '/services/grass-cleaning',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainlandingServicesHomeCleaningRoute =
+  mainlandingServicesHomeCleaningRouteImport.update({
+    id: '/(landing)/services/home-cleaning',
+    path: '/services/home-cleaning',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainlandingServicesJunkCleaningRoute =
+  mainlandingServicesJunkCleaningRouteImport.update({
+    id: '/(landing)/services/junk-cleaning',
+    path: '/services/junk-cleaning',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainlandingServicesSnowCleaningRoute =
+  mainlandingServicesSnowCleaningRouteImport.update({
+    id: '/(landing)/services/snow-cleaning',
+    path: '/services/snow-cleaning',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/': typeof mainlandingIndexRoute
+  '/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
+  '/services/home-cleaning': typeof mainlandingServicesHomeCleaningRoute
+  '/services/junk-cleaning': typeof mainlandingServicesJunkCleaningRoute
+  '/services/snow-cleaning': typeof mainlandingServicesSnowCleaningRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/': typeof mainlandingIndexRoute
+  '/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
+  '/services/home-cleaning': typeof mainlandingServicesHomeCleaningRoute
+  '/services/junk-cleaning': typeof mainlandingServicesJunkCleaningRoute
+  '/services/snow-cleaning': typeof mainlandingServicesSnowCleaningRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/(main)': typeof mainRouteRouteWithChildren
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/(main)/(landing)/': typeof mainlandingIndexRoute
+  '/(main)/(landing)/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
+  '/(main)/(landing)/services/home-cleaning': typeof mainlandingServicesHomeCleaningRoute
+  '/(main)/(landing)/services/junk-cleaning': typeof mainlandingServicesJunkCleaningRoute
+  '/(main)/(landing)/services/snow-cleaning': typeof mainlandingServicesSnowCleaningRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/auth/$'
+  fullPaths:
+    | '/api/auth/$'
+    | '/'
+    | '/services/grass-cleaning'
+    | '/services/home-cleaning'
+    | '/services/junk-cleaning'
+    | '/services/snow-cleaning'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/auth/$'
-  id: '__root__' | '/' | '/api/auth/$'
+  to:
+    | '/api/auth/$'
+    | '/'
+    | '/services/grass-cleaning'
+    | '/services/home-cleaning'
+    | '/services/junk-cleaning'
+    | '/services/snow-cleaning'
+  id:
+    | '__root__'
+    | '/(main)'
+    | '/api/auth/$'
+    | '/(main)/(landing)/'
+    | '/(main)/(landing)/services/grass-cleaning'
+    | '/(main)/(landing)/services/home-cleaning'
+    | '/(main)/(landing)/services/junk-cleaning'
+    | '/(main)/(landing)/services/snow-cleaning'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  mainRouteRoute: typeof mainRouteRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/(main)': {
+      id: '/(main)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof mainRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(main)/(landing)/': {
+      id: '/(main)/(landing)/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof mainlandingIndexRouteImport
+      parentRoute: typeof mainRouteRoute
     }
     '/api/auth/$': {
       id: '/api/auth/$'
@@ -65,11 +138,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(main)/(landing)/services/grass-cleaning': {
+      id: '/(main)/(landing)/services/grass-cleaning'
+      path: '/services/grass-cleaning'
+      fullPath: '/services/grass-cleaning'
+      preLoaderRoute: typeof mainlandingServicesGrassCleaningRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/(landing)/services/home-cleaning': {
+      id: '/(main)/(landing)/services/home-cleaning'
+      path: '/services/home-cleaning'
+      fullPath: '/services/home-cleaning'
+      preLoaderRoute: typeof mainlandingServicesHomeCleaningRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/(landing)/services/junk-cleaning': {
+      id: '/(main)/(landing)/services/junk-cleaning'
+      path: '/services/junk-cleaning'
+      fullPath: '/services/junk-cleaning'
+      preLoaderRoute: typeof mainlandingServicesJunkCleaningRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/(landing)/services/snow-cleaning': {
+      id: '/(main)/(landing)/services/snow-cleaning'
+      path: '/services/snow-cleaning'
+      fullPath: '/services/snow-cleaning'
+      preLoaderRoute: typeof mainlandingServicesSnowCleaningRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
   }
 }
 
+interface mainRouteRouteChildren {
+  mainlandingIndexRoute: typeof mainlandingIndexRoute
+  mainlandingServicesGrassCleaningRoute: typeof mainlandingServicesGrassCleaningRoute
+  mainlandingServicesHomeCleaningRoute: typeof mainlandingServicesHomeCleaningRoute
+  mainlandingServicesJunkCleaningRoute: typeof mainlandingServicesJunkCleaningRoute
+  mainlandingServicesSnowCleaningRoute: typeof mainlandingServicesSnowCleaningRoute
+}
+
+const mainRouteRouteChildren: mainRouteRouteChildren = {
+  mainlandingIndexRoute: mainlandingIndexRoute,
+  mainlandingServicesGrassCleaningRoute: mainlandingServicesGrassCleaningRoute,
+  mainlandingServicesHomeCleaningRoute: mainlandingServicesHomeCleaningRoute,
+  mainlandingServicesJunkCleaningRoute: mainlandingServicesJunkCleaningRoute,
+  mainlandingServicesSnowCleaningRoute: mainlandingServicesSnowCleaningRoute,
+}
+
+const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(
+  mainRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  mainRouteRoute: mainRouteRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

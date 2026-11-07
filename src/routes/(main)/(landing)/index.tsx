@@ -1,16 +1,16 @@
 import { Hero } from '#/components/homepage/Hero'
 import { HowItWorks } from '#/components/homepage/HowitWorks'
-import { Navbar } from '#/components/shared/Navbar'
+import { ServicesSection } from '#/components/homepage/Services'
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/')({ component: Home })
+export const Route = createFileRoute('/(main)/(landing)/')({ component: Home })
 
 function Home() {
   return (
     <div className="">
-      <Navbar />
       <Hero />
       <HowItWorks />
+      <ServicesSection />
     </div>
   )
 }
