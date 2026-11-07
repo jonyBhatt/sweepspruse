@@ -1,4 +1,5 @@
 import { Hero } from '#/components/homepage/Hero'
+import { HowItWorks } from '#/components/homepage/HowitWorks'
 import { Navbar } from '#/components/shared/Navbar'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -9,6 +10,7 @@ function Home() {
     <div className="">
       <Navbar />
       <Hero />
+      <HowItWorks />
     </div>
   )
 }
