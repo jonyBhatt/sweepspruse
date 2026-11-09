@@ -1,15 +1,14 @@
-import * as React from 'react'
 import { motion } from 'framer-motion'
 import {
-  Leaf,
-  Snowflake,
-  Sparkles,
-  Truck,
-  Sprout,
   ArrowUpRight,
   CheckCircle2,
   Home,
+  Leaf,
+  Snowflake,
+  Sprout,
+  Truck
 } from 'lucide-react'
+import * as React from 'react'
 
 interface ServiceItem {
   id: string

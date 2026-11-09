@@ -23,14 +23,15 @@ export function Footer() {
           <div className="md:col-span-5 space-y-5">
             <a
               href="/"
-              className="inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-lg"
+              className="flex flex-col items-center justify-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-lg w-fit"
               aria-label="Sweep Spruse Home"
             >
               <img
-                src="/images/dark-logo.svg"
+                src="/images/logo/dark-logo.svg"
                 alt="Sweep Spruse Logo"
-                className="w-9 h-9 object-contain transition-transform duration-300 group-hover:scale-105"
+                className="size-12 object-contain transition-transform duration-300 group-hover:scale-105"
               />
+              
               <span className="font-sans font-semibold text-xl tracking-tight text-white">
                 Sweep Spruse
               </span>

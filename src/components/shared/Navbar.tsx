@@ -51,7 +51,7 @@ export function Navbar() {
               <img
                 src="/images/logo/white-logo.svg"
                 alt="SQ Logo"
-                className="size-20 sm:size-24 md:size-32 lg:size-20
+                className="size-20
                 object-cover  transition-transform duration-300 group-hover:scale-105"
               />
             </div>

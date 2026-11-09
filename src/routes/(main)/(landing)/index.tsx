@@ -1,3 +1,4 @@
+import { ConsultationSection } from '#/components/homepage/Consultation'
 import { Hero } from '#/components/homepage/Hero'
 import { HowItWorks } from '#/components/homepage/HowitWorks'
 import { ServicesSection } from '#/components/homepage/Services'
@@ -11,6 +12,7 @@ function Home() {
       <Hero />
       <HowItWorks />
       <ServicesSection />
+      <ConsultationSection />
     </div>
   )
 }
