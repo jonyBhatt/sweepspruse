@@ -1,3 +1,4 @@
+import { Footer } from '#/components/shared/Footer'
 import { Navbar } from '#/components/shared/Navbar'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 
@@ -12,7 +13,7 @@ function MainLayout() {
       <main className="flex-1">
         <Outlet />
       </main>
-      <footer className="text-black">Footer</footer>
+      <Footer />
     </div>
   )
 }

@@ -29,7 +29,7 @@ const services: ServiceItem[] = [
     description:
       'Clear driveways, safe walkways, and one less worry when winter arrives.',
     icon: Snowflake,
-    image: '/images/services/snow-removing.jpg',
+    image: '/images/serviceimage/snowServicephotograph.png',
     href: '/services/snow-cleaning',
   },
   {
@@ -39,7 +39,7 @@ const services: ServiceItem[] = [
     description:
       'From weekly refreshes to deep cleans, come home to a space that feels good.',
     icon: Home,
-    image: '/images/services/home-cleaning.jpg',
+    image: '/images/serviceimage/homeservice.png',
     href: '/services/home-cleaning',
   },
   {
@@ -49,7 +49,7 @@ const services: ServiceItem[] = [
     description:
       'Reclaim your space. We take care of the clutter, lifting, and responsible disposal.',
     icon: Truck,
-    image: '/images/services/junk-cleaning.jpg',
+    image: '/images/serviceimage/junkcleaning.png',
     href: '/services/junk-cleaning',
   },
   {
@@ -59,7 +59,7 @@ const services: ServiceItem[] = [
     description:
       "Healthy lawns, neat edges, and outdoor spaces you'll love spending time in.",
     icon: Sprout,
-    image: '/images/services/lawn-care.jpg',
+    image: '/images/serviceimage/grasscleaning.png',
     href: '/services/grass-cleaning',
   },
 ]
@@ -115,7 +115,6 @@ export function ServicesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative h-[420px] sm:h-[440px] rounded-[var(--radius)] bg-card border border-border/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden flex flex-col justify-between p-6 transition-shadow duration-500 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                
               >
                 {/* Full-Bleed Background Image (Revealed on Hover) */}
                 <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out">

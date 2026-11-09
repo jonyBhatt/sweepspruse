@@ -63,19 +63,17 @@ export default function GrassMowingComponent() {
             className="flex items-center gap-2 text-xs font-medium text-[#5A655E] mb-10 md:mb-14"
           >
             <a href="/" className="hover:text-[#1A2E22] transition-colors">
-              Home[cite: 12]
+              Home
             </a>
             <ChevronRight className="w-3.5 h-3.5 opacity-50" />
             <a
               href="/#services"
               className="hover:text-[#1A2E22] transition-colors"
             >
-              Services[cite: 12]
+              Services
             </a>
             <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-            <span className="text-[#1A2E22] font-semibold">
-              Grass Mowing[cite: 12]
-            </span>
+            <span className="text-[#1A2E22] font-semibold">Grass Mowing</span>
           </nav>
 
           {/* 2-Column Hero Grid */}
@@ -93,7 +91,7 @@ export default function GrassMowingComponent() {
                   <Sprout className="w-4 h-4" />
                 </span>
                 <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#5A655E]">
-                  ROOM TO GROW[cite: 12]
+                  ROOM TO GROW
                 </span>
               </div>
 
@@ -102,7 +100,7 @@ export default function GrassMowingComponent() {
                 className="font-sans font-bold tracking-tight leading-[1.05] text-[#2F6B48]"
                 style={{ fontSize: 'clamp(2.75rem, 5vw, 4.5rem)' }}
               >
-                Grass Mowing[cite: 12]
+                Grass Mowing
               </h1>
 
               {/* Serif Subtitle[cite: 12] */}
@@ -110,14 +108,14 @@ export default function GrassMowingComponent() {
                 className="font-serif text-[#4A554E] leading-snug"
                 style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)' }}
               >
-                More time to enjoy the outdoors.[cite: 12]
+                More time to enjoy the outdoors.
               </p>
 
               {/* Description[cite: 12] */}
               <p className="text-sm sm:text-base text-[#5A655E] leading-relaxed max-w-lg">
                 Give your outdoor space a fresh perspective. Explore grass
                 mowing options by lawn size and make a little more room for the
-                moments you love at home.[cite: 12]
+                moments you love at home.
               </p>
 
               {/* Action Buttons */}
@@ -126,7 +124,7 @@ export default function GrassMowingComponent() {
                   href="#book"
                   className="group inline-flex items-center gap-3 bg-[#2F6B48] text-white font-medium text-sm px-6 py-3.5 rounded-xl shadow-sm hover:bg-[#25573A] transition-all duration-300"
                 >
-                  <span>Book now[cite: 12]</span>
+                  <span>Book now</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
 
@@ -134,7 +132,7 @@ export default function GrassMowingComponent() {
                   href="#pricing"
                   className="group inline-flex items-center gap-2 text-sm font-medium text-[#4A554E] hover:text-[#1A2E22] transition-colors py-2"
                 >
-                  <span>Explore pricing[cite: 12]</span>
+                  <span>Explore pricing</span>
                   <ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
                 </a>
               </div>
@@ -149,7 +147,7 @@ export default function GrassMowingComponent() {
             >
               <div className="relative rounded-[var(--radius)] overflow-hidden shadow-lg aspect-[4/3] bg-[#E5E3D8]">
                 <img
-                  src="/images/services/grass-mowing-hero.jpg"
+                  src="/images/serviceimage/lawn.jpg"
                   alt="Man mowing a lush green lawn next to a classic house"
                   className="w-full h-full object-cover"
                 />

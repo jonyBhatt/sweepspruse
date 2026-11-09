@@ -1,7 +1,5 @@
-
-
-import * as React from "react";
-import { motion } from "framer-motion";
+import * as React from 'react'
+import { motion } from 'framer-motion'
 import {
   Sparkles,
   ArrowUpRight,
@@ -10,47 +8,47 @@ import {
   Home,
   ListChecks,
   KeyRound,
-} from "lucide-react";
+} from 'lucide-react'
 
 interface PricingRow {
-  label: string;
-  price: string;
+  label: string
+  price: string
 }
 
 interface PrepStep {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
+  icon: React.ComponentType<{ className?: string }>
+  title: string
+  description: string
 }
 
 const apartmentPrices: PricingRow[] = [
-  { label: "Studio Apartment", price: "$90" },
-  { label: "1-Bedroom", price: "$120" },
-  { label: "2-Bedroom", price: "$160" },
-  { label: "3-Bedroom", price: "$180" },
-  { label: "4-Bedroom", price: "$240" },
-];
+  { label: 'Studio Apartment', price: '$90' },
+  { label: '1-Bedroom', price: '$120' },
+  { label: '2-Bedroom', price: '$160' },
+  { label: '3-Bedroom', price: '$180' },
+  { label: '4-Bedroom', price: '$240' },
+]
 
 const preparationSteps: PrepStep[] = [
   {
     icon: Home,
-    title: "Choose your apartment size",
+    title: 'Choose your apartment size',
     description:
-      "Let us know the number of bedrooms and which spaces you would like to discuss.",
+      'Let us know the number of bedrooms and which spaces you would like to discuss.',
   },
   {
     icon: ListChecks,
-    title: "Share your priorities",
+    title: 'Share your priorities',
     description:
-      "Point out the rooms, surfaces or areas you would like to focus on.",
+      'Point out the rooms, surfaces or areas you would like to focus on.',
   },
   {
     icon: KeyRound,
-    title: "Plan the arrival",
+    title: 'Plan the arrival',
     description:
-      "Include building access, parking details and any instructions for getting inside.",
+      'Include building access, parking details and any instructions for getting inside.',
   },
-];
+]
 
 export default function HomeCleaningComponent() {
   return (
@@ -87,7 +85,7 @@ export default function HomeCleaningComponent() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
               className="lg:col-span-6 space-y-6"
             >
               {/* Eyebrow Badge */}
@@ -103,7 +101,7 @@ export default function HomeCleaningComponent() {
               {/* Main Heading */}
               <h1
                 className="font-sans font-bold tracking-tight leading-[1.05] text-[#2F6B48]"
-                style={{ fontSize: "clamp(2.75rem, 5vw, 4.5rem)" }}
+                style={{ fontSize: 'clamp(2.75rem, 5vw, 4.5rem)' }}
               >
                 Apartment
                 <br />
@@ -113,7 +111,7 @@ export default function HomeCleaningComponent() {
               {/* Serif Subtitle */}
               <p
                 className="font-serif text-[#4A554E] leading-snug"
-                style={{ fontSize: "clamp(1.25rem, 2.2vw, 1.75rem)" }}
+                style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)' }}
               >
                 Come home to a fresh start.
               </p>
@@ -149,14 +147,14 @@ export default function HomeCleaningComponent() {
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
               className="lg:col-span-6"
             >
               <div className="relative rounded-[var(--radius)] overflow-hidden shadow-lg aspect-[4/3] bg-[#E5E3D8]">
                 <img
-                  src="/images/services/apartment-cleaning-hero.jpg"
+                  src="/images/serviceimage/homeclean.jpg"
                   alt="Cleaner wiping down a bright apartment kitchen counter"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
 
                 {/* Floating Pill Badge */}
@@ -189,7 +187,7 @@ export default function HomeCleaningComponent() {
 
               <h2
                 className="font-sans font-bold tracking-tight text-[#1A2E22] leading-[1.1]"
-                style={{ fontSize: "clamp(2rem, 3.8vw, 3rem)" }}
+                style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)' }}
               >
                 Find your fit.
                 <br />
@@ -258,7 +256,7 @@ export default function HomeCleaningComponent() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-10 border-b border-[#DCDED4]">
             <h2
               className="font-sans font-semibold tracking-tight text-[#1A2E22]"
-              style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
+              style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
             >
               A little preparation for a fresh start
             </h2>
@@ -270,7 +268,7 @@ export default function HomeCleaningComponent() {
           {/* 3-Column Steps */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-10">
             {preparationSteps.map((step, index) => {
-              const IconComponent = step.icon;
+              const IconComponent = step.icon
               return (
                 <motion.div
                   key={step.title}
@@ -290,7 +288,7 @@ export default function HomeCleaningComponent() {
                     {step.description}
                   </p>
                 </motion.div>
-              );
+              )
             })}
           </div>
         </div>
@@ -304,7 +302,7 @@ export default function HomeCleaningComponent() {
           <div className="space-y-2">
             <h2
               className="font-serif text-[#1A2E22] tracking-tight"
-              style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
               Make a little room for yourself.
             </h2>
@@ -323,5 +321,5 @@ export default function HomeCleaningComponent() {
         </div>
       </section>
     </main>
-  );
+  )
 }

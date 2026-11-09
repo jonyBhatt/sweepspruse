@@ -157,7 +157,7 @@ export default function JunkRemovalComponent() {
             >
               <div className="relative rounded-[var(--radius)] overflow-hidden shadow-lg aspect-[4/3] bg-[#E5E3D8]">
                 <img
-                  src="/images/services/junk-removal-hero.jpg"
+                  src="/images/serviceimage/junk.jpg"
                   alt="Team member carrying a cardboard box out of a residential garage"
                   className="w-full h-full object-cover"
                 />

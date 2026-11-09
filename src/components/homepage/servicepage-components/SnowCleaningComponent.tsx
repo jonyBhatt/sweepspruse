@@ -119,9 +119,9 @@ export default function SnowClearingPage() {
             >
               <div className="relative rounded-[var(--radius)] overflow-hidden shadow-lg aspect-[4/3] bg-[#E5E3D8]">
                 <img
-                  src="/images/services/snow-clearing-hero.jpg"
+                  src="/images/serviceimage/snowclean.jpeg"
                   alt="Technician clearing snow from a residential driveway"
-                  className="w-full h-full object-cover"
+                  className="size-max object-cover"
                 />
 
                 {/* Floating Pill Badge */}
