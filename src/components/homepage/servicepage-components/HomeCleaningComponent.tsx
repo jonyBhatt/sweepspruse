@@ -9,6 +9,7 @@ import {
   ListChecks,
   KeyRound,
 } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 
 interface PricingRow {
   label: string
@@ -125,13 +126,13 @@ export default function HomeCleaningComponent() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-5 pt-2">
-                <a
-                  href="#book"
+                <Link
+                  to="/quote"
                   className="group inline-flex items-center gap-3 bg-[#2F6B48] text-white font-medium text-sm px-6 py-3.5 rounded-xl shadow-sm hover:bg-[#25573A] transition-all duration-300"
                 >
                   <span>Book now</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
+                </Link>
 
                 <a
                   href="#pricing"
@@ -311,13 +312,13 @@ export default function HomeCleaningComponent() {
             </p>
           </div>
 
-          <a
-            href="#book"
+          <Link
+            to="/quote"
             className="group inline-flex items-center gap-3 bg-[#2F6B48] text-white font-medium text-sm px-6 py-3.5 rounded-xl shadow-sm hover:bg-[#25573A] transition-all duration-300 shrink-0"
           >
             <span>Book now</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          </Link>
         </div>
       </section>
     </main>

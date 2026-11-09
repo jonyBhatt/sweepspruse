@@ -9,6 +9,7 @@ import {
   FileText,
   KeyRound,
 } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 
 interface PricingRow {
   label: string
@@ -57,7 +58,7 @@ export default function GrassMowingComponent() {
       ========================================================= */}
       <section className="px-4 sm:px-6 lg:px-8 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto">
-          {/* Breadcrumbs[cite: 12] */}
+          {/* Breadcrumbs */}
           <nav
             aria-label="Breadcrumb"
             className="flex items-center gap-2 text-xs font-medium text-[#5A655E] mb-10 md:mb-14"
@@ -95,7 +96,7 @@ export default function GrassMowingComponent() {
                 </span>
               </div>
 
-              {/* Main Heading[cite: 12] */}
+              {/* Main Heading */}
               <h1
                 className="font-sans font-bold tracking-tight leading-[1.05] text-[#2F6B48]"
                 style={{ fontSize: 'clamp(2.75rem, 5vw, 4.5rem)' }}
@@ -103,7 +104,7 @@ export default function GrassMowingComponent() {
                 Grass Mowing
               </h1>
 
-              {/* Serif Subtitle[cite: 12] */}
+              {/* Serif Subtitle */}
               <p
                 className="font-serif text-[#4A554E] leading-snug"
                 style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)' }}
@@ -111,7 +112,7 @@ export default function GrassMowingComponent() {
                 More time to enjoy the outdoors.
               </p>
 
-              {/* Description[cite: 12] */}
+              {/* Description */}
               <p className="text-sm sm:text-base text-[#5A655E] leading-relaxed max-w-lg">
                 Give your outdoor space a fresh perspective. Explore grass
                 mowing options by lawn size and make a little more room for the
@@ -156,7 +157,7 @@ export default function GrassMowingComponent() {
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full shadow-md border border-black/5 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#2F6B48]" />
                   <span className="text-xs font-medium text-[#1A2E22]">
-                    A little care for your corner of green[cite: 12]
+                    A little care for your corner of green
                   </span>
                 </div>
               </div>
@@ -177,7 +178,7 @@ export default function GrassMowingComponent() {
             {/* Left Column: Copy */}
             <div className="lg:col-span-5 space-y-6">
               <span className="block text-[11px] font-semibold tracking-[0.18em] uppercase text-[#2F6B48]">
-                SERVICE &amp; PRICING[cite: 12]
+                SERVICE &amp; PRICING
               </span>
 
               <h2
@@ -185,17 +186,17 @@ export default function GrassMowingComponent() {
                 style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)' }}
               >
                 A fresh cut.
-                <br />A simple choice.[cite: 12]
+                <br />A simple choice.
               </h2>
 
               <p className="text-sm sm:text-base text-[#5A655E] leading-relaxed max-w-md">
                 Find the option that suits your lawn, from a small patch of
-                green to an extra-large outdoor space.[cite: 12]
+                green to an extra-large outdoor space.
               </p>
 
               <div className="pt-4 space-y-1.5 max-w-md">
                 <h3 className="font-sans font-semibold text-sm text-[#1A2E22]">
-                  Not sure which size to choose?[cite: 12]
+                  Not sure which size to choose?
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5A655E] leading-relaxed">
                   Share a photo or approximate lawn dimensions when you get in
@@ -215,10 +216,10 @@ export default function GrassMowingComponent() {
             >
               <div className="flex items-center justify-between pb-5 border-b border-[#E6E4DA]">
                 <h3 className="font-sans font-semibold text-xl text-[#1A2E22]">
-                  Lawn size[cite: 12]
+                  Lawn size
                 </h3>
                 <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-[#6B756F]">
-                  PRICE[cite: 12]
+                  PRICE
                 </span>
               </div>
 
@@ -229,10 +230,10 @@ export default function GrassMowingComponent() {
                     className="py-5 flex items-center justify-between gap-4"
                   >
                     <span className="text-sm sm:text-base text-[#3D4741]">
-                      {item.label}[cite: 12]
+                      {item.label}
                     </span>
                     <span className="font-sans font-semibold text-xl sm:text-2xl text-[#1A2E22] tabular-nums">
-                      {item.price}[cite: 12]
+                      {item.price}
                     </span>
                   </div>
                 ))}
@@ -253,10 +254,10 @@ export default function GrassMowingComponent() {
               className="font-sans font-semibold tracking-tight text-[#1A2E22]"
               style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
             >
-              A little planning for your patch of green[cite: 12]
+              A little planning for your patch of green
             </h2>
             <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#5A655E]">
-              A LITTLE PLANNING GOES A LONG WAY[cite: 12]
+              A LITTLE PLANNING GOES A LONG WAY
             </span>
           </div>
 
@@ -276,11 +277,11 @@ export default function GrassMowingComponent() {
                   <div className="flex items-center gap-2.5 text-[#1A2E22]">
                     <IconComponent className="w-4 h-4 text-[#2F6B48] shrink-0" />
                     <h3 className="font-sans font-semibold text-sm sm:text-base">
-                      {step.title}[cite: 12]
+                      {step.title}
                     </h3>
                   </div>
                   <p className="text-xs sm:text-sm text-[#5A655E] leading-relaxed">
-                    {step.description}[cite: 12]
+                    {step.description}
                   </p>
                 </motion.div>
               )
@@ -299,21 +300,21 @@ export default function GrassMowingComponent() {
               className="font-serif text-[#1A2E22] tracking-tight"
               style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
-              Your lawn. A little more inviting.[cite: 12]
+              Your lawn. A little more inviting.
             </h2>
             <p className="text-xs sm:text-sm text-[#5A655E]">
               Tell us about your outdoor space and the mowing you have in
-              mind.[cite: 12]
+              mind.
             </p>
           </div>
 
-          <a
-            href="#book"
+          <Link
+            to="/quote"
             className="group inline-flex items-center gap-3 bg-[#2F6B48] text-white font-medium text-sm px-6 py-3.5 rounded-xl shadow-sm hover:bg-[#25573A] transition-all duration-300 shrink-0"
           >
-            <span>Book now[cite: 12]</span>
+            <span>Book now</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          </Link>
         </div>
       </section>
     </main>
