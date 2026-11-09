@@ -74,7 +74,7 @@ export function Navbar() {
 
         {/* Right Side: Exact Split Pill CTA Button */}
         <div className="hidden md:flex items-center">
-          <Link to="/" className="flex items-center">
+          <Link to="/quote" className="flex items-center">
             <button className="py-1.5 px-6 rounded-full bg-primary text-primary-foreground font-sans hover:bg-primary/60 transition-colors duration-300 text-sm cursor-pointer ">
               book your cleaning
             </button>

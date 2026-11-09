@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
+import { Route as mainQuoteRouteImport } from './routes/(main)/quote'
 import { Route as mainlandingIndexRouteImport } from './routes/(main)/(landing)/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as mainlandingServicesGrassCleaningRouteImport } from './routes/(main)/(landing)/services/grass-cleaning'
@@ -20,6 +21,11 @@ import { Route as mainlandingServicesSnowCleaningRouteImport } from './routes/(m
 const mainRouteRoute = mainRouteRouteImport.update({
   id: '/(main)',
   getParentRoute: () => rootRouteImport,
+} as any)
+const mainQuoteRoute = mainQuoteRouteImport.update({
+  id: '/quote',
+  path: '/quote',
+  getParentRoute: () => mainRouteRoute,
 } as any)
 const mainlandingIndexRoute = mainlandingIndexRouteImport.update({
   id: '/(landing)/',
@@ -57,6 +63,7 @@ const mainlandingServicesSnowCleaningRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/quote': typeof mainQuoteRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/': typeof mainlandingIndexRoute
   '/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/services/snow-cleaning': typeof mainlandingServicesSnowCleaningRoute
 }
 export interface FileRoutesByTo {
+  '/quote': typeof mainQuoteRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/': typeof mainlandingIndexRoute
   '/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
@@ -75,6 +83,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(main)': typeof mainRouteRouteWithChildren
+  '/(main)/quote': typeof mainQuoteRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/(main)/(landing)/': typeof mainlandingIndexRoute
   '/(main)/(landing)/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
@@ -85,6 +94,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/quote'
     | '/api/auth/$'
     | '/'
     | '/services/grass-cleaning'
@@ -93,6 +103,7 @@ export interface FileRouteTypes {
     | '/services/snow-cleaning'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/quote'
     | '/api/auth/$'
     | '/'
     | '/services/grass-cleaning'
@@ -102,6 +113,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/(main)'
+    | '/(main)/quote'
     | '/api/auth/$'
     | '/(main)/(landing)/'
     | '/(main)/(landing)/services/grass-cleaning'
@@ -123,6 +135,13 @@ declare module '@tanstack/react-router' {
       fullPath: ''
       preLoaderRoute: typeof mainRouteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/(main)/quote': {
+      id: '/(main)/quote'
+      path: '/quote'
+      fullPath: '/quote'
+      preLoaderRoute: typeof mainQuoteRouteImport
+      parentRoute: typeof mainRouteRoute
     }
     '/(main)/(landing)/': {
       id: '/(main)/(landing)/'
@@ -170,6 +189,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface mainRouteRouteChildren {
+  mainQuoteRoute: typeof mainQuoteRoute
   mainlandingIndexRoute: typeof mainlandingIndexRoute
   mainlandingServicesGrassCleaningRoute: typeof mainlandingServicesGrassCleaningRoute
   mainlandingServicesHomeCleaningRoute: typeof mainlandingServicesHomeCleaningRoute
@@ -178,6 +198,7 @@ interface mainRouteRouteChildren {
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
+  mainQuoteRoute: mainQuoteRoute,
   mainlandingIndexRoute: mainlandingIndexRoute,
   mainlandingServicesGrassCleaningRoute: mainlandingServicesGrassCleaningRoute,
   mainlandingServicesHomeCleaningRoute: mainlandingServicesHomeCleaningRoute,
