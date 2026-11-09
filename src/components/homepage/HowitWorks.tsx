@@ -43,7 +43,7 @@ const steps: StepItem[] = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-background text-foreground relative overflow-hidden">
+    <section id="process" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-background text-foreground relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header Row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
@@ -52,13 +52,13 @@ export function HowItWorks() {
             <span className="w-2 h-2 rounded-full bg-primary mt-3 md:mt-4 shrink-0" />
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] capitalize">
               how it <br className="hidden sm:block" />
-              <span className="italic text-primary font-serif">works</span>
+              <span className="text-primary font-serif">works</span>
             </h2>
           </div>
 
           {/* Action Pill matching design reference */}
           <div>
-            <Link to="/" className="flex items-center">
+            <Link to="/quote" className="flex items-center">
               <button className="py-2 text-center px-4 rounded-full bg-primary text-primary-foreground font-sans hover:bg-primary/60 transition-colors capitalize font-medium duration-300 text-sm cursor-pointer ">
                 get a free quote
               </button>

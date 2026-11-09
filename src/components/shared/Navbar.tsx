@@ -14,7 +14,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'about', href: '#about' },
+  // { label: 'about', href: '#about' },
   { label: 'services', href: '#services' },
   { label: 'our process', href: '#process' },
   { label: 'contacts', href: '#contacts' },
@@ -43,7 +43,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
             aria-label="Home"
           >

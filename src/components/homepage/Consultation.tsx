@@ -121,7 +121,7 @@ export function ConsultationSection() {
 
   return (
     <section
-      id="consultation"
+      id="contacts"
       className="bg-[#F5F4ED] text-[#1A2E22] py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
