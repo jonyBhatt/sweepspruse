@@ -113,7 +113,7 @@ export function Hero() {
 
               {/* Action Buttons Group */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link to="/" className="flex items-center">
+                <Link to="/quote" className="flex items-center">
                   <button className="py-2 text-center px-4 rounded-full bg-primary text-primary-foreground font-sans hover:bg-primary/60 transition-colors capitalize font-medium duration-300 text-sm cursor-pointer ">
                     get a free quote
                   </button>
