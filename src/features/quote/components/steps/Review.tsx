@@ -2,8 +2,10 @@ import { ArrowLeft, CheckCircle2, Loader2, Tag } from 'lucide-react'
 import { useState } from 'react'
 import { useQuoteStore } from '../../store/useQuoteStore'
 import { calculateQuoteTotal } from '../../utils/pricing'
+import { buildWhatsAppQuoteUrl } from '../../utils/whatsapp'
 
 export function StepReview() {
+  const [whatsappUrl, setWhatsappUrl] = useState<string>('')
   const {
     category,
     details,
@@ -21,36 +23,55 @@ export function StepReview() {
 
   const handleSubmit = async () => {
     setIsSubmitting(true)
-    // Replace with your API call
-    await new Promise((resolve) => setTimeout(resolve, 900))
+    await new Promise((resolve) => setTimeout(resolve, 600))
+
+    const url = buildWhatsAppQuoteUrl(category, details, schedule, pricing)
+    setWhatsappUrl(url)
+
+    window.open(url, '_blank', 'noopener,noreferrer')
+
     setIsSubmitting(false)
     setSubmitted(true)
   }
 
   if (isSubmitted) {
     return (
-      <div className="py-12 text-center space-y-4">
-        <div className="w-14 h-14 rounded-full bg-[#2F6B48]/10 text-[#2F6B48] flex items-center justify-center mx-auto">
-          <CheckCircle2 className="w-7 h-7" />
+      <>
+        {whatsappUrl && (
+          <div className="pt-2">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#2F6B48] text-white text-sm font-medium px-5 py-3 rounded-xl hover:bg-[#25573A] transition-colors"
+            >
+              Open WhatsApp Message
+            </a>
+          </div>
+        )}
+        <div className="py-12 text-center space-y-4">
+          <div className="w-14 h-14 rounded-full bg-[#2F6B48]/10 text-[#2F6B48] flex items-center justify-center mx-auto">
+            <CheckCircle2 className="w-7 h-7" />
+          </div>
+          <h2 className="font-sans font-bold text-2xl text-[#1A2E22]">
+            Quote Request Confirmed
+          </h2>
+          <p className="text-sm text-[#5A655E] max-w-md mx-auto">
+            Thank you, {schedule.fullName}. We have received your{' '}
+            <span className="capitalize font-medium text-[#1A2E22]">
+              {category?.replace('-', ' ')}
+            </span>{' '}
+            request and will reach out to {schedule.contact} shortly.
+          </p>
+          <button
+            type="button"
+            onClick={resetQuote}
+            className="text-xs font-medium text-[#2F6B48] underline underline-offset-4 cursor-pointer"
+          >
+            Start another quote
+          </button>
         </div>
-        <h2 className="font-sans font-bold text-2xl text-[#1A2E22]">
-          Quote Request Confirmed
-        </h2>
-        <p className="text-sm text-[#5A655E] max-w-md mx-auto">
-          Thank you, {schedule.fullName}. We have received your{' '}
-          <span className="capitalize font-medium text-[#1A2E22]">
-            {category?.replace('-', ' ')}
-          </span>{' '}
-          request and will reach out to {schedule.contact} shortly.
-        </p>
-        <button
-          type="button"
-          onClick={resetQuote}
-          className="text-xs font-medium text-[#2F6B48] underline underline-offset-4 cursor-pointer"
-        >
-          Start another quote
-        </button>
-      </div>
+      </>
     )
   }
 
