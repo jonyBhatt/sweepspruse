@@ -13,11 +13,11 @@
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix",
     "check": "prettier --check .",
-    "db:generate": "dotenv -e .env.local -- prisma generate",
-    "db:push": "dotenv -e .env.local -- prisma db push",
-    "db:migrate": "dotenv -e .env.local -- prisma migrate dev",
-    "db:studio": "dotenv -e .env.local -- prisma studio",
-    "db:seed": "dotenv -e .env.local -- prisma db seed"
+    "db:generate": "dotenv run -f .env -- prisma generate",
+    "db:push": "dotenv run -f .env -- prisma db push",
+    "db:migrate": "dotenv run -f .env -- prisma migrate dev",
+    "db:studio": "dotenv run -f .env -- prisma studio",
+    "db:seed": "dotenv run -f .env -- prisma db seed"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.4.2",
