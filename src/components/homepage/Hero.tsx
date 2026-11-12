@@ -60,23 +60,23 @@ export function Hero() {
         </div>
 
         {/* Asymmetric Content Grid (Image & Card) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch max-w-6xl mx-auto w-full">
           {/* Left Column: Image with floating badge */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative flex flex-col"
           >
-            <div className="relative  overflow-hidden  aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+            <div className="relative overflow-hidden aspect-4/5 sm:aspect-4/3 lg:aspect-auto lg:min-h-[clamp(22rem,40vw,34rem)] lg:flex-1">
               {/* Replace with your actual hero image path */}
               <img
                 src="/images/cleaning.png"
                 alt="Clean modern kitchen interior"
-                className="w-full h-full object-cover transform  transition-transform duration-700 rounded"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 rounded"
               />
               {/* Floating Badge Card inside image */}
-              <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-[240px] bg-card/90 backdrop-blur-md p-4 rounded-2xl border border-border/50 shadow-lg">
+              <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-60 bg-card/90 backdrop-blur-md p-4 rounded-2xl border border-border/50 shadow-lg">
                 <div className="flex items-center gap-2 mb-1 text-primary">
                   <Sparkles className="w-4 h-4" />
                   <span className="text-xs font-semibold tracking-wide uppercase">
@@ -103,16 +103,22 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
             className="lg:col-span-6"
           >
-            <div className="bg-card rounded-[2rem] p-6 sm:p-8 md:p-10 border border-border shadow-md flex flex-col justify-between space-y-8">
+            <div className="bg-card/30 rounded-4xl p-6 sm:p-8 md:p-10 shadow-md flex flex-col space-y-8 h-full">
               {/* Descriptive Paragraph */}
-              <p className="text-base sm:text-lg text-muted-foreground font-sans leading-relaxed">
-                From tidy homes and apartments to snow-covered sidewalks and
-                unwanted junk, we help Montréal residents clear the way and
-                enjoy their space.
-              </p>
+              <div className="space-y-4 text-muted-foreground font-sans leading-relaxed">
+                <p style={{ fontSize: 'clamp(1rem, 1.3vw, 1.25rem)' }}>
+                  We elevate your space with exclusive, elite cleaning
+                  standards. Our discreet team delivers premier, tailored
+                  service for Quebec, ensuring luxury and expert care that
+                  speaks for itself.
+                </p>
+                <p style={{ fontSize: 'clamp(1rem, 1.3vw, 1.25rem)' }}>
+                  We grant you absolute peace of mind and pristine results.
+                </p>
+              </div>
 
               {/* Action Buttons Group */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 border-b pb-4">
                 <Link to="/quote" className="flex items-center">
                   <button className="py-2 text-center px-4 rounded-full bg-primary text-primary-foreground font-sans hover:bg-primary/60 transition-colors capitalize font-medium duration-300 text-sm cursor-pointer ">
                     get a free quote
@@ -131,8 +137,37 @@ export function Hero() {
                 </a>
               </div>
 
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.85, ease: 'easeOut' }}
+                className="flex min-h-44 flex-1 flex-col justify-center border-y border-border/60 py-7"
+              >
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  A little more time for you
+                </p>
+                <h2 className="mt-3 max-w-lg font-serif text-3xl leading-tight tracking-tight sm:text-4xl">
+                  Your day off should feel like a day off.
+                </h2>
+                <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  Leave the cleaning, snow, and clutter to us. Get back to what
+                  you&apos;d rather be doing.
+                </p>
+                <motion.span
+                  aria-hidden="true"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 1.2,
+                    ease: 'easeOut',
+                  }}
+                  className="mt-6 h-px w-16 origin-left bg-primary"
+                />
+              </motion.div>
+
               {/* Feature Checkmarks Footer */}
-              <div className="pt-6 border-t border-border/60 flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
+              <div className="border-t border-border/60 pt-6 flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
                 <div className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-primary" />
                   <span>Home & apartment cleaning</span>
