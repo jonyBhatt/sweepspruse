@@ -76,14 +76,7 @@ export function Footer() {
                   <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </li>
-              <li>
-                <a
-                  href="#about"
-                  className="text-sm text-white/75 hover:text-white transition-colors duration-200 inline-block"
-                >
-                  About us
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>
