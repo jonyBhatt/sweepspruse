@@ -250,3 +250,9 @@ Loaders simplify your data fetching logic dramatically. Check out more informati
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
 
 For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+
+
+
+# While Uploading migration to turso 
+turso db shell dev< ./prisma/migrations/2026103018332
+8_add_better_auth/migration.sql 
