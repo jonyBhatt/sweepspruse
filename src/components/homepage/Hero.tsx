@@ -15,11 +15,11 @@ export function Hero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="flex items-center justify-center gap-3 mb-6 md:mb-10"
         >
-          <span className="h-[1px] w-8 md:w-16 bg-muted-foreground/40" />
+          <span className="h-px w-8 md:w-16 bg-primary" />
           <span className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-muted-foreground">
-            YEAR ROUND CARE &bull; MONTRÉAL
+            Sweep &bull; Spruse
           </span>
-          <span className="h-[1px] w-8 md:w-16 bg-muted-foreground/40" />
+          <span className="h-px w-8 md:w-16 bg-primary" />
         </motion.div>
 
         {/* Headings with Animated Color & Fluid Clamp Typography */}
