@@ -9,8 +9,8 @@ import {
   ChevronDown,
   CheckCircle2,
   AlertCircle,
-  Loader2,
 } from 'lucide-react'
+import { OWNER_WHATSAPP_NUMBER } from '../../features/quote/utils/whatsapp'
 
 const consultationSchema = z.object({
   fullName: z
@@ -21,6 +21,13 @@ const consultationSchema = z.object({
     .string()
     .trim()
     .email('Please enter a valid email address (e.g., you@company.com).'),
+  whatsappNumber: z
+    .string()
+    .trim()
+    .regex(
+      /^(?:\+?1[\s.-]?)?(?:\([2-9]\d{2}\)|[2-9]\d{2})[\s.-]?[2-9]\d{2}[\s.-]?\d{4}$/,
+      'Please enter a valid Canadian phone number.',
+    ),
   areaOfInterest: z.string().min(1, 'Please select an area of interest.'),
   details: z
     .string()
@@ -43,6 +50,7 @@ export function ConsultationSection() {
   const [formData, setFormData] = useState<ConsultationFormData>({
     fullName: '',
     email: '',
+    whatsappNumber: '',
     areaOfInterest: '',
     details: '',
   })
@@ -51,7 +59,6 @@ export function ConsultationSection() {
   const [touched, setTouched] = useState<
     Partial<Record<keyof ConsultationFormData, boolean>>
   >({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const validateField = (
@@ -78,7 +85,7 @@ export function ConsultationSection() {
     setErrors((prev) => ({ ...prev, [field]: error }))
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const result = consultationSchema.safeParse(formData)
@@ -94,16 +101,31 @@ export function ConsultationSection() {
       setTouched({
         fullName: true,
         email: true,
+        whatsappNumber: true,
         areaOfInterest: true,
         details: true,
       })
       return
     }
 
-    setIsSubmitting(true)
-    // Simulate API submission
-    await new Promise((resolve) => setTimeout(resolve, 800))
-    setIsSubmitting(false)
+    const digits = result.data.whatsappNumber.replace(/\D/g, '')
+    const whatsappNumber = digits.length === 10 ? `1${digits}` : digits
+    const interestLabel =
+      interestOptions.find(
+        (option) => option.value === result.data.areaOfInterest,
+      )?.label ?? result.data.areaOfInterest
+    const message = [
+      'New Free Consultation Request',
+      '',
+      `Full name: ${result.data.fullName}`,
+      `Email: ${result.data.email}`,
+      `WhatsApp number: +${whatsappNumber}`,
+      `Area of interest: ${interestLabel}`,
+      `Details: ${result.data.details}`,
+    ].join('\n')
+    const whatsappUrl = `https://wa.me/${OWNER_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
     setIsSubmitted(true)
   }
 
@@ -111,6 +133,7 @@ export function ConsultationSection() {
     setFormData({
       fullName: '',
       email: '',
+      whatsappNumber: '',
       areaOfInterest: '',
       details: '',
     })
@@ -219,15 +242,12 @@ export function ConsultationSection() {
                     Consultation requested
                   </h3>
                   <p className="text-sm text-[#5A655E] max-w-md mx-auto leading-relaxed">
-                    Thank you,{' '}
-                    <span className="font-medium text-[#1A2E22]">
-                      {formData.fullName}
-                    </span>
-                    . We&apos;ve received your details and will be in touch at{' '}
+                    Your consultation request is ready in WhatsApp. Review and
+                    send the message to us. We can also follow up at{' '}
                     <span className="font-medium text-[#1A2E22]">
                       {formData.email}
                     </span>{' '}
-                    within one business day.
+                    if needed.
                   </p>
                   <div className="pt-2">
                     <button
@@ -344,6 +364,53 @@ export function ConsultationSection() {
                       </AnimatePresence>
                     </div>
 
+                    {/* WhatsApp Number */}
+                    <div className="space-y-1.5">
+                      <label
+                        htmlFor="consult-whatsapp"
+                        className="block text-xs font-medium text-[#1A2E22]"
+                      >
+                        Canadian WhatsApp number
+                      </label>
+                      <input
+                        id="consult-whatsapp"
+                        type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
+                        value={formData.whatsappNumber}
+                        onChange={(e) =>
+                          handleChange('whatsappNumber', e.target.value)
+                        }
+                        onBlur={() => handleBlur('whatsappNumber')}
+                        placeholder="+1 (514) 555-0123"
+                        aria-invalid={Boolean(errors.whatsappNumber)}
+                        aria-describedby={
+                          errors.whatsappNumber
+                            ? 'consult-whatsapp-error'
+                            : undefined
+                        }
+                        className={`w-full rounded-xl bg-white border px-4 py-3 text-sm text-[#1A2E22] placeholder:text-[#8E9690] focus:outline-none focus:ring-2 transition-colors ${
+                          errors.whatsappNumber
+                            ? 'border-destructive focus:ring-destructive/20 focus:border-destructive'
+                            : 'border-[#E6E4DA] focus:ring-[#2F6B48]/25 focus:border-[#2F6B48]'
+                        }`}
+                      />
+                      <AnimatePresence>
+                        {errors.whatsappNumber && (
+                          <motion.p
+                            id="consult-whatsapp-error"
+                            initial={{ opacity: 0, y: -4 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -4 }}
+                            className="flex items-center gap-1.5 text-xs text-destructive pt-0.5"
+                          >
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                            <span>{errors.whatsappNumber}</span>
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
                     {/* How can we help? (Select) */}
                     <div className="space-y-1.5">
                       <label
@@ -454,19 +521,10 @@ export function ConsultationSection() {
                     <div className="pt-2">
                       <button
                         type="submit"
-                        disabled={isSubmitting}
                         className="w-full group inline-flex items-center justify-between bg-[#2F6B48] text-white font-medium text-sm px-6 py-4 rounded-xl shadow-sm hover:bg-[#25573A] disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 cursor-pointer"
                       >
-                        <span>
-                          {isSubmitting
-                            ? 'Sending request...'
-                            : 'Request my free consultation'}
-                        </span>
-                        {isSubmitting ? (
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                        ) : (
-                          <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        )}
+                        <span>Request my free consultation</span>
+                        <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </button>
                     </div>
 

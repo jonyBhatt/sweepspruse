@@ -5,7 +5,7 @@ import type {
   ServiceCategory,
 } from '../types/quote.types'
 
-const OWNER_WHATSAPP_NUMBER = '+1 (514) 926-2229' // Replace with owner's number (country code + number, no '+' or spaces)
+export const OWNER_WHATSAPP_NUMBER = '15149262229'
 
 export function buildWhatsAppQuoteUrl(
   category: ServiceCategory | null,
