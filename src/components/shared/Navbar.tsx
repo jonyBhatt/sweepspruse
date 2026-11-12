@@ -105,10 +105,9 @@ export function Navbar() {
                 {/* Sheet Header / Logo */}
                 <div className="flex items-center justify-between pb-8 border-b border-white/10">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-xl tracking-tighter">
-                      S<span className="text-primary">.</span>
-                    </span>
-                    <span className="text-sm text-white/60">Cleaning</span>
+                    <span className="font-bold text-xl font-serif tracking-tighter">
+                      Sweep spruse
+                      </span>
                   </div>
                 </div>
 
@@ -132,8 +131,8 @@ export function Navbar() {
               <div className="pt-6 border-t border-white/10">
                 <SheetClose asChild>
                   <a
-                    href="#book"
-                    className="w-full group inline-flex items-center justify-between bg-white text-black py-3 px-5 rounded-full text-sm font-semibold shadow-sm transition-all duration-300"
+                    href="/quote"
+                    className="w-full group inline-flex items-center justify-between bg-white text-black py-3 px-5 rounded-full text-sm font-semibold shadow-sm transition-all duration-300 cursor-pointer"
                   >
                     <span>book your cleaning</span>
                     <span className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center">
