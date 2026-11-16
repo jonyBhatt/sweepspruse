@@ -11,7 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainQuoteRouteImport } from './routes/(main)/quote'
+import { Route as AdmindashboardRouteRouteImport } from './routes/admin/(dashboard)/route'
+import { Route as AdminAuthRouteRouteImport } from './routes/admin/auth/route'
 import { Route as mainlandingIndexRouteImport } from './routes/(main)/(landing)/index'
+import { Route as AdminAuthLoginRouteImport } from './routes/admin/auth/login'
+import { Route as AdminAuthSignupRouteImport } from './routes/admin/auth/signup'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as mainlandingServicesGrassCleaningRouteImport } from './routes/(main)/(landing)/services/grass-cleaning'
 import { Route as mainlandingServicesHomeCleaningRouteImport } from './routes/(main)/(landing)/services/home-cleaning'
@@ -27,10 +31,30 @@ const mainQuoteRoute = mainQuoteRouteImport.update({
   path: '/quote',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const AdmindashboardRouteRoute = AdmindashboardRouteRouteImport.update({
+  id: '/admin/(dashboard)',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuthRouteRoute = AdminAuthRouteRouteImport.update({
+  id: '/admin/auth',
+  path: '/admin/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const mainlandingIndexRoute = mainlandingIndexRouteImport.update({
   id: '/(landing)/',
   path: '/',
   getParentRoute: () => mainRouteRoute,
+} as any)
+const AdminAuthLoginRoute = AdminAuthLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminAuthRouteRoute,
+} as any)
+const AdminAuthSignupRoute = AdminAuthSignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => AdminAuthRouteRoute,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
@@ -63,7 +87,11 @@ const mainlandingServicesSnowCleaningRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/admin': typeof AdmindashboardRouteRoute
+  '/admin/auth': typeof AdminAuthRouteRouteWithChildren
   '/quote': typeof mainQuoteRoute
+  '/admin/auth/login': typeof AdminAuthLoginRoute
+  '/admin/auth/signup': typeof AdminAuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/': typeof mainlandingIndexRoute
   '/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
@@ -72,7 +100,11 @@ export interface FileRoutesByFullPath {
   '/services/snow-cleaning': typeof mainlandingServicesSnowCleaningRoute
 }
 export interface FileRoutesByTo {
+  '/admin': typeof AdmindashboardRouteRoute
+  '/admin/auth': typeof AdminAuthRouteRouteWithChildren
   '/quote': typeof mainQuoteRoute
+  '/admin/auth/login': typeof AdminAuthLoginRoute
+  '/admin/auth/signup': typeof AdminAuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/': typeof mainlandingIndexRoute
   '/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
@@ -83,7 +115,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(main)': typeof mainRouteRouteWithChildren
+  '/admin/(dashboard)': typeof AdmindashboardRouteRoute
+  '/admin/auth': typeof AdminAuthRouteRouteWithChildren
   '/(main)/quote': typeof mainQuoteRoute
+  '/admin/auth/login': typeof AdminAuthLoginRoute
+  '/admin/auth/signup': typeof AdminAuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/(main)/(landing)/': typeof mainlandingIndexRoute
   '/(main)/(landing)/services/grass-cleaning': typeof mainlandingServicesGrassCleaningRoute
@@ -94,7 +130,11 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/admin'
+    | '/admin/auth'
     | '/quote'
+    | '/admin/auth/login'
+    | '/admin/auth/signup'
     | '/api/auth/$'
     | '/'
     | '/services/grass-cleaning'
@@ -103,7 +143,11 @@ export interface FileRouteTypes {
     | '/services/snow-cleaning'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/admin'
+    | '/admin/auth'
     | '/quote'
+    | '/admin/auth/login'
+    | '/admin/auth/signup'
     | '/api/auth/$'
     | '/'
     | '/services/grass-cleaning'
@@ -113,7 +157,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/(main)'
+    | '/admin/(dashboard)'
+    | '/admin/auth'
     | '/(main)/quote'
+    | '/admin/auth/login'
+    | '/admin/auth/signup'
     | '/api/auth/$'
     | '/(main)/(landing)/'
     | '/(main)/(landing)/services/grass-cleaning'
@@ -124,6 +172,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   mainRouteRoute: typeof mainRouteRouteWithChildren
+  AdmindashboardRouteRoute: typeof AdmindashboardRouteRoute
+  AdminAuthRouteRoute: typeof AdminAuthRouteRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
@@ -143,12 +193,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainQuoteRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/admin/(dashboard)': {
+      id: '/admin/(dashboard)'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdmindashboardRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/auth': {
+      id: '/admin/auth'
+      path: '/admin/auth'
+      fullPath: '/admin/auth'
+      preLoaderRoute: typeof AdminAuthRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(main)/(landing)/': {
       id: '/(main)/(landing)/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof mainlandingIndexRouteImport
       parentRoute: typeof mainRouteRoute
+    }
+    '/admin/auth/login': {
+      id: '/admin/auth/login'
+      path: '/login'
+      fullPath: '/admin/auth/login'
+      preLoaderRoute: typeof AdminAuthLoginRouteImport
+      parentRoute: typeof AdminAuthRouteRoute
+    }
+    '/admin/auth/signup': {
+      id: '/admin/auth/signup'
+      path: '/signup'
+      fullPath: '/admin/auth/signup'
+      preLoaderRoute: typeof AdminAuthSignupRouteImport
+      parentRoute: typeof AdminAuthRouteRoute
     }
     '/api/auth/$': {
       id: '/api/auth/$'
@@ -210,8 +288,24 @@ const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(
   mainRouteRouteChildren,
 )
 
+interface AdminAuthRouteRouteChildren {
+  AdminAuthLoginRoute: typeof AdminAuthLoginRoute
+  AdminAuthSignupRoute: typeof AdminAuthSignupRoute
+}
+
+const AdminAuthRouteRouteChildren: AdminAuthRouteRouteChildren = {
+  AdminAuthLoginRoute: AdminAuthLoginRoute,
+  AdminAuthSignupRoute: AdminAuthSignupRoute,
+}
+
+const AdminAuthRouteRouteWithChildren = AdminAuthRouteRoute._addFileChildren(
+  AdminAuthRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   mainRouteRoute: mainRouteRouteWithChildren,
+  AdmindashboardRouteRoute: AdmindashboardRouteRoute,
+  AdminAuthRouteRoute: AdminAuthRouteRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

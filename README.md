@@ -76,6 +76,12 @@ pnpm dlx shadcn@latest add button
 
 2. Visit the [Better Auth documentation](https://www.better-auth.com) to unlock the full potential of authentication in your app.
 
+The admin area is available at `/admin`. Unauthenticated visitors are sent to
+`/admin/login`, and new accounts can be created at `/admin/signup`. Signup is
+open, so anyone can create an account with admin access. Admin sessions expire
+after seven days and are not extended by activity. The existing Prisma models
+already support Better Auth, so no schema migration is required.
+
 ### Adding a Database (Optional)
 
 Better Auth can work in stateless mode, but to persist user data, add a database:
