@@ -1,19 +1,18 @@
-import * as React from 'react'
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import {
-  LayoutDashboard,
-  ClipboardList,
-  Percent,
-  MessageSquare,
-  SlidersHorizontal,
   CalendarDays,
-  Settings,
+  ClipboardList,
   HelpCircle,
-  PanelLeft,
+  LayoutDashboard,
   Menu,
-  X,
+  MessageSquare,
+  Percent,
+  Settings,
+  SlidersHorizontal,
+  X
 } from 'lucide-react'
+import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 export type AdminNavId =
   | 'overview'
@@ -49,33 +48,38 @@ const primaryNavItems: NavItem[] = [
   {
     id: 'quotes',
     label: 'Quote Queue',
-    href: '/admin/quotes',
+    // href: '/admin/quotes',
+    href: '#',
     icon: ClipboardList,
     badge: 4,
   },
   {
     id: 'discounts',
     label: 'Discounts & Promos',
-    href: '/admin/discounts',
+    // href: '/admin/discounts',
+    href: '#',
     icon: Percent,
   },
   {
     id: 'consultations',
     label: 'Consultation Inbox',
-    href: '/admin/consultations',
+    // href: '/admin/consultations',
+    href: '#',
     icon: MessageSquare,
     badge: 2,
   },
   {
     id: 'pricing',
     label: 'Services & Pricing',
-    href: '/admin/pricing',
+    // href: '/admin/pricing',
+    href: '#',
     icon: SlidersHorizontal,
   },
   {
     id: 'schedule',
     label: 'Dispatch Calendar',
-    href: '/admin/schedule',
+    // href: '/admin/schedule',
+    href: '#',
     icon: CalendarDays,
   },
 ]
