@@ -16,7 +16,7 @@ import { OWNER_WHATSAPP_NUMBER } from '../../features/quote/utils/whatsapp'
 
 type FaqCategory =
   | 'all'
-  | 'snow-clearing'
+  | 'snow-cleaning'
   | 'apartment-cleaning'
   | 'junk-removal'
   | 'grass-mowing'
@@ -36,7 +36,7 @@ const categoryTabs: {
 }[] = [
   { id: 'all', label: 'All Questions' },
   { id: 'property-managers', label: 'Hosts & Landlords', icon: Building2 },
-  { id: 'snow-clearing', label: 'Snow Clearing', icon: Snowflake },
+  { id: 'snow-cleaning', label: 'Snow Clearing', icon: Snowflake },
   { id: 'apartment-cleaning', label: 'Apartment Cleaning', icon: Sparkles },
   { id: 'junk-removal', label: 'Junk Removal', icon: Package },
   { id: 'grass-mowing', label: 'Grass Mowing', icon: Sprout },
@@ -45,7 +45,7 @@ const categoryTabs: {
 const faqItems: FaqItem[] = [
   {
     id: 'snow-dispatch',
-    category: 'snow-clearing',
+    category: 'snow-cleaning',
     question:
       'Do you dispatch automatically during snowstorms so I don’t get fined or hit with a slip-and-fall claim?',
     answer: (
@@ -68,7 +68,7 @@ const faqItems: FaqItem[] = [
   },
   {
     id: 'snow-equipment',
-    category: 'snow-clearing',
+    category: 'snow-cleaning',
     question:
       'Why do you use hand-operated snow clearing equipment instead of plow trucks?',
     answer: (

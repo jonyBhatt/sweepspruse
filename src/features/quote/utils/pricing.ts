@@ -26,7 +26,7 @@ export function calculateQuoteTotal(
 
   let subtotal = 0;
 
-  if (category === "snow-clearing" && "price" in details && details.price) {
+  if (category === "snow-cleaning" && "price" in details && details.price) {
     subtotal = details.price;
   } else if (
     category === "apartment-cleaning" &&

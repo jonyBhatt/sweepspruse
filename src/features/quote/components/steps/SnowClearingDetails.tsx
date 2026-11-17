@@ -61,7 +61,7 @@ export function SnowClearingDetails({ onChange }: SnowClearingDetailsProps) {
               type="button"
               onClick={() => {
                 setDetails({
-                  category: 'snow-clearing',
+                  category: 'snow-cleaning',
                   planType: snowPlanType ?? 'one-time',
                   propertyOption: opt.label,
                   price: opt.price,

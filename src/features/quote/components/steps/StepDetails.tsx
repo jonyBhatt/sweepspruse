@@ -19,7 +19,7 @@ export function StepDetails() {
   const handleContinue = () => {
     setError(null)
 
-    if (category === 'snow-clearing') {
+    if (category === 'snow-cleaning') {
       const res = snowDetailsSchema.safeParse(details)
       if (!res.success) {
         setError(
@@ -59,7 +59,7 @@ export function StepDetails() {
 
   return (
     <div className="space-y-8">
-      {category === 'snow-clearing' && (
+      {category === 'snow-cleaning' && (
         <SnowClearingDetails onChange={() => setError(null)} />
       )}
 

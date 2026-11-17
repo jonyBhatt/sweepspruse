@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const snowDetailsSchema = z.object({
-  category: z.literal("snow-clearing"),
+  category: z.literal("snow-cleaning"),
   planType: z.enum(["one-time", "seasonal-contract"]),
   propertyOption: z.string().min(1, "Please select a property size."),
   price: z.number().positive(),

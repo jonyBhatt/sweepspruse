@@ -18,7 +18,7 @@ const categories: {
   icon: React.ComponentType<{ className?: string }>
 }[] = [
   {
-    id: 'snow-clearing',
+    id: 'snow-cleaning',
     title: 'Snow Clearing',
     description: 'Hand-operated clearing for driveways, walkways, and stairs.',
     icon: Snowflake,
@@ -70,7 +70,7 @@ export function StepCategory() {
     useQuoteStore()
 
   const canProceed =
-    category !== null && (category !== 'snow-clearing' || snowPlanType !== null)
+    category !== null && (category !== 'snow-cleaning' || snowPlanType !== null)
 
   return (
     <div className="space-y-8">
@@ -132,7 +132,7 @@ export function StepCategory() {
 
       {/* Conditional Sub-Cards for Snow Clearing */}
       <AnimatePresence>
-        {category === 'snow-clearing' && (
+        {category === 'snow-cleaning' && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}

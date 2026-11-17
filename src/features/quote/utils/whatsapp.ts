@@ -23,7 +23,7 @@ export function buildWhatsAppQuoteUrl(
   ]
 
   // 1. Dynamic Service Details
-  if (details?.category === 'snow-clearing') {
+  if (details?.category === 'snow-cleaning') {
     lines.push(
       `• *Plan:* ${details.planType === 'seasonal-contract' ? 'Seasonal Contract' : 'One-time Snow Removal'}`,
       `• *Area:* ${details.propertyOption ?? 'N/A'}`,

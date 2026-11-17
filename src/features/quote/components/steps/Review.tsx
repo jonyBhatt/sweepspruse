@@ -99,7 +99,7 @@ export function StepReview() {
 
         {/* Dynamic Details Summary */}
         <div className="space-y-2 text-sm text-[#3D4741]">
-          {details?.category === 'snow-clearing' && (
+          {details?.category === 'snow-cleaning' && (
             <>
               <p>
                 <span className="text-[#5A655E]">Plan:</span>{' '}

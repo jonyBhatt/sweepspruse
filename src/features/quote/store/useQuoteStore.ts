@@ -75,7 +75,7 @@ export const useQuoteStore = create<QuoteStoreState>((set) => ({
       snowPlanType,
       // Reset property selection when switching between one-time & seasonal contract
       details: {
-        category: "snow-clearing",
+        category: "snow-cleaning",
         planType: snowPlanType,
       },
     }),

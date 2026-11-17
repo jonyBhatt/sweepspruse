@@ -40,7 +40,7 @@ type ConsultationFormData = z.infer<typeof consultationSchema>
 type FormErrors = Partial<Record<keyof ConsultationFormData, string>>
 
 const interestOptions = [
-  { value: 'snow-clearing', label: 'Snow Clearing & Winter Contracts' },
+  { value: 'snow-cleaning', label: 'Snow Clearing & Winter Contracts' },
   { value: 'apartment-cleaning', label: 'Home & Apartment Cleaning' },
   { value: 'junk-removal', label: 'Junk Removal & Clear-outs' },
   { value: 'grass-mowing', label: 'Grass Mowing & Lawn Care' },

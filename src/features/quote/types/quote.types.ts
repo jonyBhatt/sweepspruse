@@ -1,5 +1,5 @@
 export type ServiceCategory =
-  | "snow-clearing"
+  | "snow-cleaning"
   | "apartment-cleaning"
   | "junk-removal"
   | "grass-mowing";
@@ -10,7 +10,7 @@ export type ApartmentRecurrence = "one-time" | "weekly" | "bi-weekly" | "monthly
 export type CleaningIntensity = "standard" | "deep-clean" | "move-in-out";
 
 export interface SnowClearingDetails {
-  category: "snow-clearing";
+  category: "snow-cleaning";
   planType: SnowPlanType;
   propertyOption: string;
   price: number;
