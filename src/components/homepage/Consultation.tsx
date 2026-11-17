@@ -11,6 +11,7 @@ import {
   AlertCircle,
 } from 'lucide-react'
 import { OWNER_WHATSAPP_NUMBER } from '../../features/quote/utils/whatsapp'
+import { Link } from '@tanstack/react-router'
 
 const consultationSchema = z.object({
   fullName: z
@@ -534,12 +535,12 @@ export function ConsultationSection() {
                       <p>
                         Your details stay private. We&apos;ll only use them to
                         respond to your inquiry.{' '}
-                        <a
-                          href="/privacy"
+                        <Link
+                          to="/privacy-policy"
                           className="underline underline-offset-2 hover:text-[#1A2E22] transition-colors"
                         >
                           Privacy policy
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </form>
