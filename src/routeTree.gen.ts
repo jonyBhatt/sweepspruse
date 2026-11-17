@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
+import { Route as mainPrivacyPolicyRouteImport } from './routes/(main)/privacy-policy'
 import { Route as mainQuoteRouteImport } from './routes/(main)/quote'
 import { Route as AdmindashboardRouteRouteImport } from './routes/admin/(dashboard)/route'
 import { Route as AdminAuthRouteRouteImport } from './routes/admin/auth/route'
@@ -25,6 +26,11 @@ import { Route as mainlandingServicesSnowCleaningRouteImport } from './routes/(m
 const mainRouteRoute = mainRouteRouteImport.update({
   id: '/(main)',
   getParentRoute: () => rootRouteImport,
+} as any)
+const mainPrivacyPolicyRoute = mainPrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => mainRouteRoute,
 } as any)
 const mainQuoteRoute = mainQuoteRouteImport.update({
   id: '/quote',
@@ -89,6 +95,7 @@ const mainlandingServicesSnowCleaningRoute =
 export interface FileRoutesByFullPath {
   '/admin': typeof AdmindashboardRouteRoute
   '/admin/auth': typeof AdminAuthRouteRouteWithChildren
+  '/privacy-policy': typeof mainPrivacyPolicyRoute
   '/quote': typeof mainQuoteRoute
   '/admin/auth/login': typeof AdminAuthLoginRoute
   '/admin/auth/signup': typeof AdminAuthSignupRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/admin': typeof AdmindashboardRouteRoute
   '/admin/auth': typeof AdminAuthRouteRouteWithChildren
+  '/privacy-policy': typeof mainPrivacyPolicyRoute
   '/quote': typeof mainQuoteRoute
   '/admin/auth/login': typeof AdminAuthLoginRoute
   '/admin/auth/signup': typeof AdminAuthSignupRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/(main)': typeof mainRouteRouteWithChildren
   '/admin/(dashboard)': typeof AdmindashboardRouteRoute
   '/admin/auth': typeof AdminAuthRouteRouteWithChildren
+  '/(main)/privacy-policy': typeof mainPrivacyPolicyRoute
   '/(main)/quote': typeof mainQuoteRoute
   '/admin/auth/login': typeof AdminAuthLoginRoute
   '/admin/auth/signup': typeof AdminAuthSignupRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/admin'
     | '/admin/auth'
+    | '/privacy-policy'
     | '/quote'
     | '/admin/auth/login'
     | '/admin/auth/signup'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
   to:
     | '/admin'
     | '/admin/auth'
+    | '/privacy-policy'
     | '/quote'
     | '/admin/auth/login'
     | '/admin/auth/signup'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '/(main)'
     | '/admin/(dashboard)'
     | '/admin/auth'
+    | '/(main)/privacy-policy'
     | '/(main)/quote'
     | '/admin/auth/login'
     | '/admin/auth/signup'
@@ -185,6 +197,13 @@ declare module '@tanstack/react-router' {
       fullPath: ''
       preLoaderRoute: typeof mainRouteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/(main)/privacy-policy': {
+      id: '/(main)/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof mainPrivacyPolicyRouteImport
+      parentRoute: typeof mainRouteRoute
     }
     '/(main)/quote': {
       id: '/(main)/quote'
@@ -267,6 +286,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface mainRouteRouteChildren {
+  mainPrivacyPolicyRoute: typeof mainPrivacyPolicyRoute
   mainQuoteRoute: typeof mainQuoteRoute
   mainlandingIndexRoute: typeof mainlandingIndexRoute
   mainlandingServicesGrassCleaningRoute: typeof mainlandingServicesGrassCleaningRoute
@@ -276,6 +296,7 @@ interface mainRouteRouteChildren {
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
+  mainPrivacyPolicyRoute: mainPrivacyPolicyRoute,
   mainQuoteRoute: mainQuoteRoute,
   mainlandingIndexRoute: mainlandingIndexRoute,
   mainlandingServicesGrassCleaningRoute: mainlandingServicesGrassCleaningRoute,
