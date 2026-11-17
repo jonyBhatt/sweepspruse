@@ -14,7 +14,7 @@ export function calculateQuoteTotal(
     return { isCustomQuote: false, subtotal: 0, discountAmount: 0, total: 0 };
   }
 
-  if (category === "junk-removal") {
+  if (category === "junk-cleaning") {
     return {
       isCustomQuote: true,
       subtotal: 0,
@@ -29,12 +29,12 @@ export function calculateQuoteTotal(
   if (category === "snow-cleaning" && "price" in details && details.price) {
     subtotal = details.price;
   } else if (
-    category === "apartment-cleaning" &&
+    category === "home-cleaning" &&
     "basePrice" in details &&
     details.basePrice
   ) {
     subtotal = details.basePrice;
-  } else if (category === "grass-mowing" && "price" in details && details.price) {
+  } else if (category === "grass-cleaning" && "price" in details && details.price) {
     subtotal = details.price;
   }
 

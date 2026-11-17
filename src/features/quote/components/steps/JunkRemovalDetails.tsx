@@ -15,7 +15,7 @@ export function JunkRemovalDetails({ onChange }: JunkRemovalDetailsProps) {
     const reader = new FileReader()
     reader.onload = () => {
       setDetails({
-        category: 'junk-removal',
+        category: 'junk-cleaning',
         photoDataUrl: reader.result as string,
         photoName: file.name,
       })
@@ -121,7 +121,7 @@ export function JunkRemovalDetails({ onChange }: JunkRemovalDetailsProps) {
           }
           onChange={(e) => {
             setDetails({
-              category: 'junk-removal',
+              category: 'junk-cleaning',
               description: e.target.value,
             })
             onChange()

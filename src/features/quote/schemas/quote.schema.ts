@@ -8,7 +8,7 @@ export const snowDetailsSchema = z.object({
 });
 
 export const apartmentDetailsSchema = z.object({
-  category: z.literal("apartment-cleaning"),
+  category: z.literal("home-cleaning"),
   size: z.string().min(1, "Please select your apartment size."),
   basePrice: z.number().positive(),
   recurrence: z.enum(["one-time", "weekly", "bi-weekly", "monthly"]),
@@ -23,7 +23,7 @@ export const apartmentDetailsSchema = z.object({
  */
 export const junkDetailsSchema = z
   .object({
-    category: z.literal("junk-removal"),
+    category: z.literal("junk-cleaning"),
     photoDataUrl: z.string().optional(),
     photoName: z.string().optional(),
     description: z.string().optional(),
@@ -46,7 +46,7 @@ export const junkDetailsSchema = z
   });
 
 export const grassDetailsSchema = z.object({
-  category: z.literal("grass-mowing"),
+  category: z.literal("grass-cleaning"),
   lawnSize: z.string().min(1, "Please select your lawn size."),
   price: z.number().positive(),
 });

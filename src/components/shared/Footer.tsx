@@ -8,9 +8,9 @@ interface FooterLink {
 
 const serviceLinks: FooterLink[] = [
   { label: 'Snow Clearing', href: '/services/snow-cleaning' },
-  { label: 'Junk Removal', href: '/services/junk-removal' },
-  { label: 'Apartment Cleaning', href: '/services/apartment-cleaning' },
-  { label: 'Grass Mowing', href: '/services/grass-mowing' },
+  { label: 'Junk Removal', href: '/services/junk-cleaning' },
+  { label: 'Apartment Cleaning', href: '/services/home-cleaning' },
+  { label: 'Grass Mowing', href: '/services/grass-cleaning' },
 ]
 
 export function Footer() {

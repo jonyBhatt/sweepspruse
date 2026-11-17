@@ -24,21 +24,21 @@ const categories: {
     icon: Snowflake,
   },
   {
-    id: 'apartment-cleaning',
+    id: 'home-cleaning',
     title: 'Apartment Cleaning',
     description:
       'Studio to 4-bedroom cleans tailored to your schedule and intensity.',
     icon: Sparkles,
   },
   {
-    id: 'junk-removal',
+    id: 'junk-cleaning',
     title: 'Junk Removal',
     description:
       'We are always available to handle your junk removal needs at a very affordable cost.',
     icon: Package,
   },
   {
-    id: 'grass-mowing',
+    id: 'grass-cleaning',
     title: 'Grass Mowing',
     description:
       'Clean cuts and neat edges for small to extra-large residential lawns.',

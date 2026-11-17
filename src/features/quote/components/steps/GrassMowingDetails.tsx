@@ -35,7 +35,7 @@ export function GrassMowingDetails({ onChange }: GrassMowingDetailsProps) {
               type="button"
               onClick={() => {
                 setDetails({
-                  category: 'grass-mowing',
+                  category: 'grass-cleaning',
                   lawnSize: item.label,
                   price: item.price,
                 })

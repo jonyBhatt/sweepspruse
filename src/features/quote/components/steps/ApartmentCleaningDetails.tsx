@@ -59,7 +59,7 @@ export function ApartmentCleaningDetails({
                 type="button"
                 onClick={() => {
                   setDetails({
-                    category: 'apartment-cleaning',
+                    category: 'home-cleaning',
                     size: item.label,
                     basePrice: item.price,
                   })

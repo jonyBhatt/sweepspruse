@@ -1,8 +1,8 @@
 export type ServiceCategory =
   | "snow-cleaning"
-  | "apartment-cleaning"
-  | "junk-removal"
-  | "grass-mowing";
+  | "home-cleaning"
+  | "junk-cleaning"
+  | "grass-cleaning";
 
 export type SnowPlanType = "one-time" | "seasonal-contract";
 
@@ -17,7 +17,7 @@ export interface SnowClearingDetails {
 }
 
 export interface ApartmentCleaningDetails {
-  category: "apartment-cleaning";
+  category: "home-cleaning";
   size: string;
   basePrice: number;
   recurrence: ApartmentRecurrence;
@@ -26,7 +26,7 @@ export interface ApartmentCleaningDetails {
 }
 
 export interface JunkRemovalDetails {
-  category: "junk-removal";
+  category: "junk-cleaning";
   photoDataUrl?: string;
   photoName?: string;
   description?: string;
@@ -34,7 +34,7 @@ export interface JunkRemovalDetails {
 }
 
 export interface GrassMowingDetails {
-  category: "grass-mowing";
+  category: "grass-cleaning";
   lawnSize: string;
   price: number;
 }

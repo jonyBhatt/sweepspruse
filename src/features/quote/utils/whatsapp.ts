@@ -28,7 +28,7 @@ export function buildWhatsAppQuoteUrl(
       `• *Plan:* ${details.planType === 'seasonal-contract' ? 'Seasonal Contract' : 'One-time Snow Removal'}`,
       `• *Area:* ${details.propertyOption ?? 'N/A'}`,
     )
-  } else if (details?.category === 'apartment-cleaning') {
+  } else if (details?.category === 'home-cleaning') {
     lines.push(
       `• *Size:* ${details.size ?? 'N/A'}`,
       `• *Recurrence:* ${details.recurrence ?? 'N/A'}`,
@@ -37,7 +37,7 @@ export function buildWhatsAppQuoteUrl(
     if (details.notes) {
       lines.push(`• *Notes:* ${details.notes}`)
     }
-  } else if (details?.category === 'junk-removal') {
+  } else if (details?.category === 'junk-cleaning') {
     if (details.photoName) {
       lines.push(
         `• *Photo:* Attached (${details.photoName} — will send in chat)`,
@@ -46,7 +46,7 @@ export function buildWhatsAppQuoteUrl(
     if (details.description) {
       lines.push(`• *Items:* ${details.description}`)
     }
-  } else if (details?.category === 'grass-mowing') {
+  } else if (details?.category === 'grass-cleaning') {
     lines.push(`• *Lawn Size:* ${details.lawnSize ?? 'N/A'}`)
   }
 

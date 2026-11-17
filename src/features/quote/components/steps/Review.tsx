@@ -114,7 +114,7 @@ export function StepReview() {
             </>
           )}
 
-          {details?.category === 'apartment-cleaning' && (
+          {details?.category === 'home-cleaning' && (
             <>
               <p>
                 <span className="text-[#5A655E]">Size:</span>{' '}
@@ -135,7 +135,7 @@ export function StepReview() {
             </>
           )}
 
-          {details?.category === 'junk-removal' && (
+          {details?.category === 'junk-cleaning' && (
             <>
               {details.photoName && (
                 <p>
@@ -152,7 +152,7 @@ export function StepReview() {
             </>
           )}
 
-          {details?.category === 'grass-mowing' && (
+          {details?.category === 'grass-cleaning' && (
             <p>
               <span className="text-[#5A655E]">Lawn Size:</span>{' '}
               <span className="font-medium">{details.lawnSize}</span>

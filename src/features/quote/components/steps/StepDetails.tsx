@@ -27,7 +27,7 @@ export function StepDetails() {
         )
         return
       }
-    } else if (category === 'apartment-cleaning') {
+    } else if (category === 'home-cleaning') {
       const res = apartmentDetailsSchema.safeParse(details)
       if (!res.success) {
         setError(
@@ -35,7 +35,7 @@ export function StepDetails() {
         )
         return
       }
-    } else if (category === 'junk-removal') {
+    } else if (category === 'junk-cleaning') {
       const res = junkDetailsSchema.safeParse(details)
       if (!res.success) {
         setError(
@@ -44,7 +44,7 @@ export function StepDetails() {
         )
         return
       }
-    } else if (category === 'grass-mowing') {
+    } else if (category === 'grass-cleaning') {
       const res = grassDetailsSchema.safeParse(details)
       if (!res.success) {
         setError(
@@ -63,15 +63,15 @@ export function StepDetails() {
         <SnowClearingDetails onChange={() => setError(null)} />
       )}
 
-      {category === 'apartment-cleaning' && (
+      {category === 'home-cleaning' && (
         <ApartmentCleaningDetails onChange={() => setError(null)} />
       )}
 
-      {category === 'junk-removal' && (
+      {category === 'junk-cleaning' && (
         <JunkRemovalDetails onChange={() => setError(null)} />
       )}
 
-      {category === 'grass-mowing' && (
+      {category === 'grass-cleaning' && (
         <GrassMowingDetails onChange={() => setError(null)} />
       )}
 

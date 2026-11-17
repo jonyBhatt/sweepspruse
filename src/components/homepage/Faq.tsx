@@ -17,9 +17,9 @@ import { OWNER_WHATSAPP_NUMBER } from '../../features/quote/utils/whatsapp'
 type FaqCategory =
   | 'all'
   | 'snow-cleaning'
-  | 'apartment-cleaning'
-  | 'junk-removal'
-  | 'grass-mowing'
+  | 'home-cleaning'
+  | 'junk-cleaning'
+  | 'grass-cleaning'
   | 'property-managers'
 
 interface FaqItem {
@@ -37,9 +37,9 @@ const categoryTabs: {
   { id: 'all', label: 'All Questions' },
   { id: 'property-managers', label: 'Hosts & Landlords', icon: Building2 },
   { id: 'snow-cleaning', label: 'Snow Clearing', icon: Snowflake },
-  { id: 'apartment-cleaning', label: 'Apartment Cleaning', icon: Sparkles },
-  { id: 'junk-removal', label: 'Junk Removal', icon: Package },
-  { id: 'grass-mowing', label: 'Grass Mowing', icon: Sprout },
+  { id: 'home-cleaning', label: 'Apartment Cleaning', icon: Sparkles },
+  { id: 'junk-cleaning', label: 'Junk Removal', icon: Package },
+  { id: 'grass-cleaning', label: 'Grass Mowing', icon: Sprout },
 ]
 
 const faqItems: FaqItem[] = [
@@ -86,7 +86,7 @@ const faqItems: FaqItem[] = [
   },
   {
     id: 'airbnb-turnover',
-    category: 'apartment-cleaning',
+    category: 'home-cleaning',
     question:
       'Can you handle tight tenant turnovers or same-day Airbnb check-ins?',
     answer: (
@@ -104,7 +104,7 @@ const faqItems: FaqItem[] = [
   },
   {
     id: 'cleaning-tiers',
-    category: 'apartment-cleaning',
+    category: 'home-cleaning',
     question:
       'What is the difference between Standard, Deep Clean, and Move-In/Move-Out cleaning?',
     answer: (
@@ -153,7 +153,7 @@ const faqItems: FaqItem[] = [
   },
   {
     id: 'junk-scope',
-    category: 'junk-removal',
+    category: 'junk-cleaning',
     question:
       'A tenant left boxes and clutter behind—what kind of junk do you remove?',
     answer: (
@@ -171,7 +171,7 @@ const faqItems: FaqItem[] = [
   },
   {
     id: 'junk-photo-quote',
-    category: 'junk-removal',
+    category: 'junk-cleaning',
     question: 'How do I get a price for Junk Removal if there’s no fixed rate?',
     answer: (
       <p>
@@ -206,7 +206,7 @@ const faqItems: FaqItem[] = [
   },
   {
     id: 'lawn-driveway-sizing',
-    category: 'grass-mowing',
+    category: 'grass-cleaning',
     question:
       'How do I know which driveway or lawn size to pick when booking online?',
     answer: (
