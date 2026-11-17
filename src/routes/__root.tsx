@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from '@vercel/analytics/react'
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
@@ -45,6 +45,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-W35ZSM67"
+        />
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());`}
+        </script>
         <HeadContent />
       </head>
       <body>
