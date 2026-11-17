@@ -88,13 +88,17 @@ const bottomNavItems: NavItem[] = [
   {
     id: 'settings',
     label: 'Settings',
-    href: '/admin/settings',
+    // href: '/admin/settings',
+    href: '#',
+
     icon: Settings,
   },
   {
     id: 'help',
     label: 'Support & Docs',
-    href: '/admin/help',
+    // href: '/admin/help',
+    href: '#',
+
     icon: HelpCircle,
   },
 ]
