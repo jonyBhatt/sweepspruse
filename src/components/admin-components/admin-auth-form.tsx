@@ -108,7 +108,7 @@ export function AdminAuthForm({ mode }: AdminAuthFormProps) {
           {isSignup ? 'Already have an account? ' : "Don't have an account? "}
           <Link
             className="font-medium text-primary underline-offset-4 hover:underline"
-            to={isSignup ? '/admin/login' : '/admin/signup'}
+            to={isSignup ? '/admin/auth/login' : '/admin/auth/signup'}
           >
             {isSignup ? 'Sign in' : 'Sign up'}
           </Link>
