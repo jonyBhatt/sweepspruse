@@ -14,7 +14,16 @@ const config = defineConfig({
     devtools(),
     nitro(),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true, // Discovers all linkable pages
+      },
+      sitemap: {
+        enabled: true,
+        host: 'https://www.sweepspruse.com/',
+      },
+    }),
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
